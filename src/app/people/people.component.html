@@ -1,0 +1,15 @@
+<h1>PEOPLE</h1>
+<ng-container *ngIf="people$ | async as people">
+  <div *ngFor="let person of people.results">
+    <p>
+      {{ person.name }}
+      <a href="javascript:void(0)" (click)="toPlanet(person.homeworld)"
+        >Homeworld</a
+      >
+    </p>
+  </div>
+  <button *ngIf="people.previous" (click)="loadPeople(people.previous)">
+    PREVIOUS
+  </button>
+  <button *ngIf="people.next" (click)="loadPeople(people.next)">NEXT</button>
+</ng-container>
