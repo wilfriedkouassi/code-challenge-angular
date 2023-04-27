@@ -5,7 +5,7 @@ import { PeopleRepository } from './people.model';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'code-challenge-angular-people',
+  selector: 'code-challenge-angular-main',
   templateUrl: './people.component.html',
   styleUrls: ['./people.component.scss'],
 })

@@ -1,15 +1,60 @@
-<h1>PEOPLE</h1>
-<ng-container *ngIf="people$ | async as people">
-  <div *ngFor="let person of people.results">
-    <p>
-      {{ person.name }}
-      <a href="javascript:void(0)" (click)="toPlanet(person.homeworld)"
-        >Homeworld</a
-      >
-    </p>
+<section class="section-people-list">
+  <div class="u-center-text u-margin-bottom">
+    <h1>people list</h1>
   </div>
-  <button *ngIf="people.previous" (click)="loadPeople(people.previous)">
-    PREVIOUS
-  </button>
-  <button *ngIf="people.next" (click)="loadPeople(people.next)">NEXT</button>
-</ng-container>
+
+  <ng-container *ngIf="people$ | async as people">
+    <div class="people__list">
+      <div *ngFor="let person of people.results" class="people--card">
+        <div class="people--card__picture people--card__picture--1">&nbsp;</div>
+        <h4 class="people--card__heading">
+          {{ person.name }}
+        </h4>
+
+        <div class="people--card__details">
+          <ul>
+            <li><b>name: </b> {{ person.name }}</li>
+            <li><b>height: </b> {{ person.height }}</li>
+            <li><b>mass: </b> {{ person.mass }}</li>
+            <li><b>hair_color: </b> {{ person.hair_color }}</li>
+            <li><b>skin_color: </b> {{ person.skin_color }}</li>
+            <li><b>eye_color: </b> {{ person.eye_color }}</li>
+            <li><b>birth_year: </b> {{ person.birth_year }}</li>
+            <li><b>gender: </b> {{ person.gender }}</li>
+          </ul>
+
+          <a href="#" class="btn btn-text">
+            See All Details &rarr;
+          </a>
+          <!--  <p>
+            {{ person.name }}
+            <a href="javascript:void(0)" (click)="toPlanet(person.homeworld)"
+              >Homeworld</a
+            >
+          </p> -->
+        </div>
+      </div>
+    </div>
+    <div class="people__list--button-box">
+      <a
+        *ngIf="people.previous; else hide"
+        (click)="loadPeople(people.previous)"
+        class="btn btn--green item item-left"
+      >
+        &larr;PREVIOUS
+      </a>
+      <ng-template #hide>
+        <p class="hide-item">
+          It's Not Done!
+        </p>
+      </ng-template>
+      <a
+        *ngIf="people.next"
+        (click)="loadPeople(people.next)"
+        class="btn btn--green item item-right"
+      >
+        NEXT &rarr;
+      </a>
+    </div>
+  </ng-container>
+</section>
