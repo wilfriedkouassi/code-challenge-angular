@@ -5,7 +5,8 @@ import { PlanetComponent } from './planet/planet.component';
 export const appRoutes: Route[] = [
   {
     path: '',
-    component: PeopleComponent,
+    component: PlanetComponent,
+    //component: PeopleComponent,
   },
   {
     path: 'planets/:id',

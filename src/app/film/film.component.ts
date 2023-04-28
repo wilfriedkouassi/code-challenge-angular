@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PlanetService } from './planet.service';
+import { PlanetService } from './film.service';
 import { Observable } from 'rxjs';
-import { Planet, PlanetRepository } from './planet.model';
+import { Planet, PlanetRepository } from './film.model';
 
 @Component({
   selector: 'code-challenge-angular-planet',

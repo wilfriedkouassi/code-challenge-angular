@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { API } from '../api';
-import { Planet, PlanetRepository } from './planet.model';
+import { Planet, PlanetRepository } from './film.model';
 
 @Injectable({
   providedIn: 'root',

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { PlanetComponent } from './planet.component';
-import { PlanetService } from './planet.service';
+import { PlanetComponent } from './film.component';
+import { PlanetService } from './film.service';
 import { of } from 'rxjs';
 import { RouterTestingModule } from '@angular/router/testing';
 
