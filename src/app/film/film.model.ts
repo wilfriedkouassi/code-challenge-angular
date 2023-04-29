@@ -1,23 +1,24 @@
-export interface PlanetRepository {
+export interface FilmRepository {
   count: number;
   next?: URL;
   previous?: URL;
-  results: Planet[];
+  results: Film[];
 }
 
-export interface Planet {
-  name: string;
-  rotation_period: number;
-  orbital_period: number;
-  diameter: number;
-  climate: string;
-  gravity: string;
-  terrain: string;
-  surface_water: number;
-  population: number;
-  residents: URL[];
-  films: URL[];
+export interface Film {
+  title: string;
+  episode_id: number;
+  opening_crawl: string;
+  director: string;
+  producer: string;
+  release_date: string;
   created: Date;
   edited: Date;
   url: URL;
+
+  characters: URL[],
+  planets: URL[],
+  starships: URL[],
+  vehicles: URL[],
+  species: URL[]
 }

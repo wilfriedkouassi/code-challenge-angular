@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PlanetService } from './film.service';
+import { FilmService } from './film.service';
 import { Observable } from 'rxjs';
-import { Planet, PlanetRepository } from './film.model';
+import { FilmRepository } from './film.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'code-challenge-angular-planet',
-  templateUrl: './planet.component.html',
-  styleUrls: ['./planet.component.scss'],
+  templateUrl: './film.component.html',
+  styleUrls: ['./film.component.scss'],
 })
-export class PlanetComponent implements OnInit {
-  planet$?: Observable<PlanetRepository>;
+export class FilmComponent implements OnInit {
+  film$?: Observable<FilmRepository>;
   constructor(
-    private activatedRoute: ActivatedRoute,
-    private service: PlanetService
+    private service: FilmService, private router: Router
   ) {}
 
 /*   ngOnInit(): void {
@@ -23,10 +23,10 @@ export class PlanetComponent implements OnInit {
   } */
 
   ngOnInit(): void {
-    this.loadPlanet();
+    this.loadFilm();
   }
 
-  loadPlanet(url?: URL) {
-    this.planet$ = this.service.getPlanet(url);
+  loadFilm(url?: URL) {
+    this.film$ = this.service.getFilm(url);
   }
 }

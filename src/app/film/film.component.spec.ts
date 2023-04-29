@@ -1,57 +1,98 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { PlanetComponent } from './film.component';
-import { PlanetService } from './film.service';
+import { FilmComponent } from './film.component';
+import { FilmService } from './film.service';
 import { of } from 'rxjs';
 import { RouterTestingModule } from '@angular/router/testing';
 
-const PLANET_MOCK = {
-  count: 82,
-  next: 'https://swapi.dev/api/planets/?page=2',
+const FILM_MOCK = {
+  count: 6,
+  next: null,
   previous: null,
   results: [
     {
-      name: 'Kashyyyk',
-      rotation_period: '26',
-      orbital_period: '381',
-      diameter: '12765',
-      climate: 'tropical',
-      gravity: '1 standard',
-      terrain: 'jungle, forests, lakes, rivers',
-      surface_water: '60',
-      population: '45000000',
-      residents: [
+      title: 'A New Hope',
+      episode_id: 4,
+      opening_crawl:
+        "It is a period of civil war.\r\nRebel spaceships, striking\r\nfrom a hidden base, have won\r\ntheir first victory against\r\nthe evil Galactic Empire.\r\n\r\nDuring the battle, Rebel\r\nspies managed to steal secret\r\nplans to the Empire's\r\nultimate weapon, the DEATH\r\nSTAR, an armored space\r\nstation with enough power\r\nto destroy an entire planet.\r\n\r\nPursued by the Empire's\r\nsinister agents, Princess\r\nLeia races home aboard her\r\nstarship, custodian of the\r\nstolen plans that can save her\r\npeople and restore\r\nfreedom to the galaxy....",
+      director: 'George Lucas',
+      producer: 'Gary Kurtz, Rick McCallum',
+      release_date: '1977-05-25',
+      characters: [
+        'https://swapi.dev/api/people/1/',
+        'https://swapi.dev/api/people/2/',
+        'https://swapi.dev/api/people/3/',
+        'https://swapi.dev/api/people/4/',
+        'https://swapi.dev/api/people/5/',
+        'https://swapi.dev/api/people/6/',
+        'https://swapi.dev/api/people/7/',
+        'https://swapi.dev/api/people/8/',
+        'https://swapi.dev/api/people/9/',
+        'https://swapi.dev/api/people/10/',
+        'https://swapi.dev/api/people/12/',
         'https://swapi.dev/api/people/13/',
-        'https://swapi.dev/api/people/80/',
+        'https://swapi.dev/api/people/14/',
+        'https://swapi.dev/api/people/15/',
+        'https://swapi.dev/api/people/16/',
+        'https://swapi.dev/api/people/18/',
+        'https://swapi.dev/api/people/19/',
+        'https://swapi.dev/api/people/81/',
       ],
-      films: ['https://swapi.dev/api/films/6/'],
-      created: '2014-12-10T13:32:00.124000Z',
-      edited: '2014-12-20T20:58:18.442000Z',
-      url: 'https://swapi.dev/api/planets/14/',
+      planets: [
+        'https://swapi.dev/api/planets/1/',
+        'https://swapi.dev/api/planets/2/',
+        'https://swapi.dev/api/planets/3/',
+      ],
+      starships: [
+        'https://swapi.dev/api/starships/2/',
+        'https://swapi.dev/api/starships/3/',
+        'https://swapi.dev/api/starships/5/',
+        'https://swapi.dev/api/starships/9/',
+        'https://swapi.dev/api/starships/10/',
+        'https://swapi.dev/api/starships/11/',
+        'https://swapi.dev/api/starships/12/',
+        'https://swapi.dev/api/starships/13/',
+      ],
+      vehicles: [
+        'https://swapi.dev/api/vehicles/4/',
+        'https://swapi.dev/api/vehicles/6/',
+        'https://swapi.dev/api/vehicles/7/',
+        'https://swapi.dev/api/vehicles/8/',
+      ],
+      species: [
+        'https://swapi.dev/api/species/1/',
+        'https://swapi.dev/api/species/2/',
+        'https://swapi.dev/api/species/3/',
+        'https://swapi.dev/api/species/4/',
+        'https://swapi.dev/api/species/5/',
+      ],
+      created: '2014-12-10T14:23:31.880000Z',
+      edited: '2014-12-20T19:49:45.256000Z',
+      url: 'https://swapi.dev/api/films/1/',
     },
   ],
 };
 
-describe('PlanetComponent', () => {
-  let component: PlanetComponent;
-  let fixture: ComponentFixture<PlanetComponent>;
+describe('FilmComponent', () => {
+  let component: FilmComponent;
+  let fixture: ComponentFixture<FilmComponent>;
 
   const service = {
-    getPlanet: () => of(PLANET_MOCK),
+    getFilm: () => of(FILM_MOCK),
   };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule],
-      declarations: [PlanetComponent],
+      declarations: [FilmComponent],
       providers: [
         {
-          provide: PlanetService,
+          provide: FilmService,
           useValue: service,
         },
       ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(PlanetComponent);
+    fixture = TestBed.createComponent(FilmComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
