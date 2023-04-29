@@ -10,6 +10,8 @@ $color-secondary-dark:#ff7730;
 $color-tertiary-light:#2998ff;
 $color-tertiary-dark:#5643fa;
 
+$color-yellow-light:#fabf2b; //#f0ef80;// #f7E1AE;
+$color-yellow-dark:#846c31; // #f0ef80; //#f79540;
 
 $color-grey-light-1: #f7f7f7;
 $color-grey-light-2: #eee;
@@ -28,3 +30,127 @@ $grid-width: 114rem;
 $gutter-vertical: 8rem;
 $gutter-vertical-small: 6rem;
 $gutter-honrizontal:6rem;
+
+
+.nav {
+
+    &__container{
+        height: 5rem;
+        display: flex;
+        background-color: #e1b139;
+        box-sizing: 3rem;
+        color: $color-white;
+        justify-content: space-between;
+        align-items: center;
+        padding: .5rem;
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    &__menu {
+        display: flex;
+        color: $color-white;
+        gap: 4rem;
+        align-items: center;
+        list-style: none;
+        justify-content: space-around;
+
+        a {
+            color: white;
+            text-decoration: none;
+            
+        }
+    }
+    
+}
+
+.btn {
+    &,
+    &:link,
+    &:visited {
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      display: inline-block;
+      border-radius: 10rem;
+  
+      transition: all .2s;
+      position: relative;
+      font-size: $default-font-size;
+  
+      border: none;
+      cursor: pointer;
+    }
+  
+    &:hover {
+      transform: translateY(-0.3rem);
+      box-shadow: 0 1rem 2rem rgba($color-grey-dark, 0.2);
+  
+      &::after {
+        transform: scaleX(1.5) scaleY(1.6);
+        opacity: 0;
+      }
+    }
+  
+    &:active,
+    &:focus {
+      outline: none;
+      transform: translateY(-1px);
+      box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+    }
+  
+  
+    &--green {
+      background-color: $color-yellow-light;
+      color: $color-white;
+  
+      &::after {
+        background-color: $color-yellow-light;
+      }
+    }
+    &--nav {
+      background-color: $color-yellow-dark;
+      color: $color-white;
+
+      border-radius: 1rem !important;
+  
+      &::after {
+        background-color: $color-yellow-light;
+      }
+    }
+  
+    &:hover{
+  
+    }
+  }
+  
+  .btn-text {
+    &,
+    &:link,
+    &:visited {
+      font-size: $default-font-size;
+      color: $color-yellow-light;
+      display: inline-block;
+      margin-top:  1rem;
+      text-decoration: none;
+      border-bottom:  1px solid $color-yellow-light;
+      padding: 4px;
+      transition: all .2s;
+    }
+  
+    
+    &:hover {
+        background-color: $color-yellow-light;
+        color: $color-white;
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+        transform: translateY(-2px);
+    }
+  
+    &:active {
+      box-shadow: 0 .5rem 1rem rgba($color-black, 0.15);
+      transform: translateY(0);
+    }
+  }
+
+

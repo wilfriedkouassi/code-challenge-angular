@@ -5,7 +5,7 @@ import { StarshipRepository } from './starship.model';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'code-challenge-angular-people',
+  selector: 'code-challenge-angular-starship',
   templateUrl: './starship.component.html',
   styleUrls: ['./starship.component.scss'],
 })

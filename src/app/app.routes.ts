@@ -5,12 +5,44 @@ import { FilmComponent } from './film/film.component';
 import { SpecieComponent } from './specie/specie.component';
 import { VehicleComponent } from './vehicle/vehicle.component';
 import { StarshipComponent } from './starship/starship.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { AppComponent } from './app.component';
 
 export const appRoutes: Route[] = [
   {
+    path: 'home',
+    component: PeopleComponent
+  },
+  {
     path: '',
-    component: StarshipComponent, //VehicleComponent, // SpecieComponent, //FilmComponent, //PlanetComponent,
-    //component: PeopleComponent,
+    redirectTo: 'home',
+    pathMatch:'full'
+  },
+
+  {
+    path: 'starships',
+    component: StarshipComponent ,
+  },
+  {
+    path: 'people',
+    component: PeopleComponent,
+  },
+  {
+    path: 'films',
+    component: FilmComponent, 
+   
+  },
+  {
+    path: 'species',
+    component: SpecieComponent,
+  },
+  {
+    path: 'planets',
+    component: PlanetComponent,
+  },
+  {
+    path: 'vehicles',
+    component: VehicleComponent, 
   },
   {
     path: 'planets/:id',

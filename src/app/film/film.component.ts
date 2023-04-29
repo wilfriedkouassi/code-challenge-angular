@@ -6,7 +6,7 @@ import { FilmRepository } from './film.model';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'code-challenge-angular-planet',
+  selector: 'code-challenge-angular-film',
   templateUrl: './film.component.html',
   styleUrls: ['./film.component.scss'],
 })

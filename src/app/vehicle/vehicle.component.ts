@@ -5,7 +5,7 @@ import { VehicleRepository } from './vehicle.model';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'code-challenge-angular-people',
+  selector: 'code-challenge-angular-vehicle',
   templateUrl: './vehicle.component.html',
   styleUrls: ['./vehicle.component.scss'],
 })

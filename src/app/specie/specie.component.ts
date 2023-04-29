@@ -5,7 +5,7 @@ import { SpecieRepository } from './specie.model';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'code-challenge-angular-people',
+  selector: 'code-challenge-angular-specie',
   templateUrl: './specie.component.html',
   styleUrls: ['./specie.component.scss'],
 })
