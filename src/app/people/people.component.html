@@ -1,17 +1,17 @@
-<section class="section-people-list">
+<section class="section-ressource-list">
   <div class="u-center-text u-margin-bottom">
     <h1>people list</h1>
   </div>
 
   <ng-container *ngIf="people$ | async as people">
-    <div class="people__list">
-      <div *ngFor="let person of people.results" class="people--card">
-        <div class="people--card__picture people--card__picture--1">&nbsp;</div>
-        <h4 class="people--card__heading">
+    <div class="ressource__list">
+      <div *ngFor="let person of people.results" class="ressource--card">
+        <div class="ressource--card__picture ressource--card__picture--1">&nbsp;</div>
+        <h4 class="ressource--card__heading">
           {{ person.name }}
         </h4>
 
-        <div class="people--card__details">
+        <div class="ressource--card__details">
           <ul>
             <li><b>name: </b> {{ person.name }}</li>
             <li><b>height: </b> {{ person.height }}</li>
@@ -35,7 +35,7 @@
         </div>
       </div>
     </div>
-    <div class="people__list--button-box">
+    <div class="ressource__list--button-box">
       <a
         *ngIf="people.previous; else hide"
         (click)="loadPeople(people.previous)"
@@ -44,7 +44,7 @@
         &larr;PREVIOUS
       </a>
       <ng-template #hide>
-        <p class="hide-item">
+        <p class="u-hide-item">
           It's Not Done!
         </p>
       </ng-template>

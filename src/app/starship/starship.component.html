@@ -1,17 +1,17 @@
-<section class="section-people-list">
+<section class="section-ressource-list">
   <div class="u-center-text u-margin-bottom">
     <h1>Starship list</h1>
   </div>
 
   <ng-container *ngIf="starship$ | async as starship">
-    <div class="people__list">
-      <div *ngFor="let starship of starship.results" class="people--card">
-        <div class="people--card__picture people--card__picture--1">&nbsp;</div>
-        <h4 class="people--card__heading">
+    <div class="ressource__list">
+      <div *ngFor="let starship of starship.results" class="ressource--card">
+        <div class="ressource--card__picture ressource--card__picture--1">&nbsp;</div>
+        <h4 class="ressource--card__heading">
           {{ starship.name }}
         </h4>
 
-        <div class="people--card__details">
+        <div class="ressource--card__details">
           <ul>
             <li><b>name: </b> {{ starship.name }}</li>
             <li><b>model: </b> {{ starship.model }}</li>
@@ -27,16 +27,10 @@
           <a href="#" class="btn btn-text">
             See All Details &rarr;
           </a>
-          <!--  <p>
-            {{ person.name }}
-            <a href="javascript:void(0)" (click)="toPlanet(person.homeworld)"
-              >Homeworld</a
-            >
-          </p> -->
         </div>
       </div>
     </div>
-    <div class="people__list--button-box">
+    <div class="ressource__list--button-box">
       <a
         *ngIf="starship.previous; else hide"
         (click)="loadStarship(starship.previous)"
@@ -45,7 +39,7 @@
         &larr;PREVIOUS
       </a>
       <ng-template #hide>
-        <p class="hide-item">
+        <p class="u-hide-item">
           It's Not Done!
         </p>
       </ng-template>

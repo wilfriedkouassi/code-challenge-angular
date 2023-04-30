@@ -1,17 +1,17 @@
-<section class="section-people-list">
+<section class="section-ressource-list">
   <div class="u-center-text u-margin-bottom">
     <h1>Specie list</h1>
   </div>
 
   <ng-container *ngIf="specie$ | async as specie">
-    <div class="people__list">
-      <div *ngFor="let specie of specie.results" class="people--card">
-        <div class="people--card__picture people--card__picture--1">&nbsp;</div>
-        <h4 class="people--card__heading">
+    <div class="ressource__list">
+      <div *ngFor="let specie of specie.results" class="ressource--card">
+        <div class="ressource--card__picture ressource--card__picture--1">&nbsp;</div>
+        <h4 class="ressource--card__heading">
           {{ specie.name }}
         </h4>
 
-        <div class="people--card__details">
+        <div class="ressource--card__details">
           <ul>
             <li><b>name: </b> {{ specie.name }}</li>
             <li><b> classification: </b> {{ specie. classification }}</li>
@@ -35,7 +35,7 @@
         </div>
       </div>
     </div>
-    <div class="people__list--button-box">
+    <div class="ressource__list--button-box">
       <a
         *ngIf="specie.previous; else hide"
         (click)="loadSpecie(specie.previous)"
@@ -44,7 +44,7 @@
         &larr;PREVIOUS
       </a>
       <ng-template #hide>
-        <p class="hide-item">
+        <p class="u-hide-item">
           It's Not Done!
         </p>
       </ng-template>

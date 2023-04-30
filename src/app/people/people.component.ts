@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { PeopleRepository } from './people.model';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'code-challenge-angular-people',
   templateUrl: './people.component.html',

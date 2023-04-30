@@ -1,0 +1,53 @@
+.ressource__list {
+    position: relative;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    margin: 0 2.5rem 0 2.5rem;
+  
+  
+    &--button-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  
+      width: 90%;
+      height: 42rem;
+      margin-bottom: 1px;
+    
+      position: absolute;
+      top: 190rem;
+    }
+  }
+  
+  .section-ressource-list {
+    height: auto;
+    background-color: $color-grey-light-1;
+    padding: 2rem 0 5rem 0;
+    margin: 0 auto;
+    color: #000;
+    font-weight: bold;
+  
+    h1 {
+      font-size: 3.5rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      display: inline-block;
+      background-image: linear-gradient(
+        to right,
+        $color-yellow-light, 
+        $color-yellow-dark
+      );
+      -webkit-background-clip: text;
+      color: $color-yellow-light;
+      letter-spacing: 2px;
+      transition: all 0.2s;
+  
+      &:hover {
+        transform: skewY(2deg) skewX(15deg) scale(1);
+        text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.2);
+      }
+    }
+  }
+  

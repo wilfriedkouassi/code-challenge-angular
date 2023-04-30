@@ -1,23 +1,23 @@
-<section class="section-people-list">
+<section class="section-ressource-list">
   <div class="u-center-text u-margin-bottom">
     <h1>planet list</h1>
   </div>
 
   <ng-container *ngIf="planet$ | async as planet">
-    <div class="people__list">
-      <div *ngFor="let planet of planet.results" class="people--card">
-        <div class="people--card__picture people--card__picture--1">&nbsp;</div>
-        <h4 class="people--card__heading">
+    <div class="ressource__list">
+      <div *ngFor="let planet of planet.results" class="ressource--card">
+        <div class="ressource--card__picture ressource--card__picture--1">&nbsp;</div>
+        <h4 class="ressource--card__heading">
           {{ planet.name }}
         </h4>
 
-        <div class="people--card__details">
+        <div class="ressource--card__details">
           <ul>
-            <li>Name: {{ planet.name }}</li>
-            <li>rotation_period: {{ planet.rotation_period }}</li>
-            <li>orbital_period: {{ planet.orbital_period }}</li>
-            <li>diameter: {{ planet.diameter }}</li>
-            <li>residents: {{ planet.residents }}</li>
+            <li><span>Name</span>  <span> {{ planet.name }}</span></li>
+            <li><span>rotation period</span>  <span>{{ planet.rotation_period }}</span> </li>
+            <li><span>Name</span>  <span>Name</span>orbital_period: {{ planet.orbital_period }}</li>
+            <li><span>Name</span>  <span>Name</span>diameter: {{ planet.diameter }}</li>
+            <li><span>Name</span>  <span>Name</span>residents: {{ planet.residents }}</li>
           </ul>
 
           <a href="#" class="btn btn-text">
@@ -32,7 +32,7 @@
         </div>
       </div>
     </div>
-    <div class="people__list--button-box">
+    <div class="ressource__list--button-box">
       <a
         *ngIf="planet.previous; else hide"
         (click)="loadPlanet(planet.previous)"
@@ -41,7 +41,7 @@
         &larr;PREVIOUS
       </a>
       <ng-template #hide>
-        <p class="hide-item">
+        <p class="u-hide-item">
           It's Not Done!
         </p>
       </ng-template>
