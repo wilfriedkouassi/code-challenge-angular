@@ -11,19 +11,21 @@ import { Planet, PlanetRepository } from './planet.model';
 })
 export class PlanetComponent implements OnInit {
   planet$?: Observable<PlanetRepository>;
+  planet2$?: Observable<Planet>;
   constructor(
     private activatedRoute: ActivatedRoute,
     private service: PlanetService
   ) {}
 
-/*   ngOnInit(): void {
-     this.planet$ = this.service.getPlanet(
+  loadPlanet2(): void {
+     this.planet2$ = this.service.getPlanetWithId(
       this.activatedRoute.snapshot.params['id']
     ); 
-  } */
-
+  } 
+  
   ngOnInit(): void {
-    this.loadPlanet();
+    this.planet$ ?  this.loadPlanet() : this.loadPlanet2();
+   
   }
 
   loadPlanet(url?: URL) {

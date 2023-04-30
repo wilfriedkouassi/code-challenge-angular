@@ -13,14 +13,23 @@ export class StarshipService {
   getStarship(url?: URL): Observable<StarshipRepository> {
     return this.http
       .get<StarshipRepository>(url ? url.toString() : `${API}/starships`)
-      /* .pipe(
-        map((repository: VehicleRepository) => {
-          repository.results.map((vehicle: Vehicle) => {
-            vehicle.homeworld = new URL(vehicle.homeworld);
-            return vehicle;
+      .pipe(
+        map((repository: StarshipRepository) => {
+          repository.results.map((starship: Starship) => {
+            
+            starship.pilots.map((people: URL) => {
+              people = new URL(people);
+              return people;
+            });
+            starship.films.map((film: URL) => {
+              film = new URL(film);
+              return film;
+            });
+
+            return starship;
           });
           return repository;
         })
-      ); */
+      );
   }
 }

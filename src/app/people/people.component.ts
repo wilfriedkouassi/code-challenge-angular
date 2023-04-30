@@ -28,4 +28,26 @@ export class PeopleComponent implements OnInit {
     const parts = planet.toString().split('/');
     this.router.navigateByUrl(`planets/${parts.pop() || parts.pop()}`);
   }
+
+  toFilm(film: URL) {
+    console.log(film);
+    const parts = film.toString().split('/');
+    this.router.navigateByUrl(`films/${parts.pop() || parts.pop()}`);
+  }
+  toSpecie(specie: URL) {
+    console.log(specie);
+    const parts = specie.toString().split('/');
+    this.router.navigateByUrl(`species/${parts.pop() || parts.pop()}`);
+  }
+  toVehicle(film: URL) {
+    console.log(film);
+    const parts = film.toString().split('/');
+    this.router.navigateByUrl(`films/${parts.pop() || parts.pop()}`);
+  }
+
+  toStarship(starship: URL) {
+    console.log(starship);
+    const parts = starship.toString().split('/');
+    this.router.navigateByUrl(`starships/${parts.pop() || parts.pop()}`);
+  }
 }

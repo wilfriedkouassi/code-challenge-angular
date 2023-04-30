@@ -13,14 +13,23 @@ export class VehicleService {
   getVehicle(url?: URL): Observable<VehicleRepository> {
     return this.http
       .get<VehicleRepository>(url ? url.toString() : `${API}/vehicles`)
-      /* .pipe(
+      .pipe(
         map((repository: VehicleRepository) => {
-          repository.results.map((vehicle: Vehicle) => {
-            vehicle.homeworld = new URL(vehicle.homeworld);
+          repository.results.map((vehicle: Vehicle) => {           
+
+            vehicle.pilots.map((people: URL) => {
+                  people = new URL(people);
+                  return people;
+            });
+            vehicle.films.map((film: URL) => {
+                  film = new URL(film);
+                  return film;
+            });
+
             return vehicle;
           });
           return repository;
         })
-      ); */
+      );   
   }
 }

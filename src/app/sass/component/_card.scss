@@ -62,10 +62,11 @@
       margin: 0 auto;
 
       li {
+        text-transform: uppercase;
         display: flex;
         justify-content: space-between;
         align-items: left;
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         padding: 0.5rem;
 
         &:not(:last-child) {

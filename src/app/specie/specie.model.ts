@@ -17,7 +17,7 @@ export interface Specie {
   homeworld: URL;
   language: string;
   people: URL[];
-  film: URL[];
+  films: URL[];
   created: Date;
   edited: Date;
   url: URL;

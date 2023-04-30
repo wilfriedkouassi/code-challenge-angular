@@ -13,14 +13,22 @@
 
         <div class="ressource--card__details">
           <ul>
-            <li><b>name: </b> {{ person.name }}</li>
-            <li><b>height: </b> {{ person.height }}</li>
-            <li><b>mass: </b> {{ person.mass }}</li>
-            <li><b>hair_color: </b> {{ person.hair_color }}</li>
-            <li><b>skin_color: </b> {{ person.skin_color }}</li>
-            <li><b>eye_color: </b> {{ person.eye_color }}</li>
-            <li><b>birth_year: </b> {{ person.birth_year }}</li>
-            <li><b>gender: </b> {{ person.gender }}</li>
+            <li><span>name </span> <span>{{ person.name }} </span></li>
+            <li><span>height </span> <span>{{ person.height }} </span></li>
+            <li><span>mass </span> <span>{{ person.mass }} </span></li>
+            <li><span>hair color </span> <span>{{ person.hair_color }} </span></li>
+            <li><span>skin color </span> <span>{{ person.skin_color }} </span></li>
+            <li><span>eye color </span> <span>{{ person.eye_color }} </span></li>
+            <li><span>birth year </span> <span>{{ person.birth_year }} </span></li>
+            <li><span>gender </span> <span>{{ person.gender }} </span></li>
+            <li><span>planet </span> <span> <a href="javascript:void(0)" (click)="toPlanet(person.homeworld)"
+              >See Deatails</a> </span></li>
+              <li>
+                <div *ngFor="let film of person.films">
+                <p></p>
+                </div>
+                
+              </li>
           </ul>
 
           <a href="#" class="btn btn-text">

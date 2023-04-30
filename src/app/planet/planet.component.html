@@ -1,9 +1,17 @@
 <section class="section-ressource-list">
-  <div class="u-center-text u-margin-bottom">
-    <h1>planet list</h1>
-  </div>
+  
+  <ng-container *ngIf="planet2$ | async as planet2">
 
+    <div class="u-center-text u-margin-bottom">
+      <h1>planet {{planet2.name}}</h1>
+    </div>
+    {{planet2.name}}
+  </ng-container>
   <ng-container *ngIf="planet$ | async as planet">
+    <div class="u-center-text u-margin-bottom">
+      <h1>planet list</h1>
+    </div>
+    
     <div class="ressource__list">
       <div *ngFor="let planet of planet.results" class="ressource--card">
         <div class="ressource--card__picture ressource--card__picture--1">&nbsp;</div>
