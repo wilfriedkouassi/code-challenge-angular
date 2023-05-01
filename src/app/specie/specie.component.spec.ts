@@ -46,7 +46,7 @@ describe('SpecieComponent', () => {
   let fixture: ComponentFixture<SpecieComponent>;
 
   const service = {
-    getPeople: () => of(SPECIE_MOCK),
+    getSpecie: () => of(SPECIE_MOCK),
   };
 
   beforeEach(async () => {

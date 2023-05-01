@@ -1,42 +1,42 @@
 <section class="section-ressource-list">
-  
-  <ng-container *ngIf="planet2$ | async as planet2">
-
-    <div class="u-center-text u-margin-bottom">
-      <h1>planet {{planet2.name}}</h1>
-    </div>
-    {{planet2.name}}
-  </ng-container>
   <ng-container *ngIf="planet$ | async as planet">
     <div class="u-center-text u-margin-bottom">
       <h1>planet list</h1>
     </div>
-    
+
     <div class="ressource__list">
       <div *ngFor="let planet of planet.results" class="ressource--card">
-        <div class="ressource--card__picture ressource--card__picture--1">&nbsp;</div>
+        <div class="ressource--card__picture ressource--card__picture--1">
+          &nbsp;
+        </div>
         <h4 class="ressource--card__heading">
           {{ planet.name }}
         </h4>
 
         <div class="ressource--card__details">
           <ul>
-            <li><span>Name</span>  <span> {{ planet.name }}</span></li>
-            <li><span>rotation period</span>  <span>{{ planet.rotation_period }}</span> </li>
-            <li><span>orbital period</span> <span>{{ planet.orbital_period }}</span></li>
-            <li><span>diameter</span>  <span>{{ planet.diameter }}</span></li>
-            <li><span>residents</span>  <span>{{ planet.residents }}</span></li>
+            <li>
+              <span>Name</span> <span> {{ planet.name }}</span>
+            </li>
+            <li>
+              <span>rotation period</span>
+              <span>{{ planet.rotation_period }}</span>
+            </li>
+            <li>
+              <span>orbital period</span>
+              <span>{{ planet.orbital_period }}</span>
+            </li>
+            <li>
+              <span>diameter</span> <span>{{ planet.diameter }}</span>
+            </li>
           </ul>
-
-          <a href="#" class="btn btn-text">
-            See All Details &rarr;
-          </a>
-          <!--  <p>
-              {{ person.name }}
-              <a href="javascript:void(0)" (click)="toPlanet(person.homeworld)"
-                >Homeworld</a
-              >
-            </p> -->
+          <a
+          href="javascript:void(0)"
+          class="btn btn-text"
+          (click)="toPlanet(planet.url)"
+        >
+          See All Details &rarr;
+        </a>
         </div>
       </div>
     </div>
@@ -60,6 +60,48 @@
       >
         NEXT &rarr;
       </a>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="planet2$ | async as planet2">
+    <div class="u-center-text u-margin-bottom">
+      <h1>planet: {{ planet2.name }}</h1>
+    </div>
+    <div class="ressource--card__details">
+      <ul>
+        <li>
+          <span>Name</span> <span> {{ planet2.name }}</span>
+        </li>
+        <li>
+          <span>rotation period</span>
+          <span>{{ planet2.rotation_period }}</span>
+        </li>
+        <li>
+          <span>orbital period</span> <span>{{ planet2.orbital_period }}</span>
+        </li>
+        <li>
+          <span>diameter</span> <span>{{ planet2.diameter }}</span>
+        </li>
+        <li>
+          <div *ngFor="let people of planet2.residents">
+            <a
+              href="javascript:void(0)"
+              (click)="toPeople(people)"
+              class="btn btn-text"
+              >People</a
+            >
+          </div>
+        </li>
+        <li>
+          <div *ngFor="let film of planet2.films">
+            <a
+              href="javascript:void(0)"
+              (click)="toFilm(film)"
+              class="btn btn-text"
+              >Film</a
+            >
+          </div>
+        </li>
+      </ul>
     </div>
   </ng-container>
 </section>

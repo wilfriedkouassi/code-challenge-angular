@@ -10,9 +10,11 @@ import { Film, FilmRepository } from './film.model';
 export class FilmService {
   constructor(private http: HttpClient) {}
 
-  /* getPlanet(id: number): Observable<Planet> {
-    return this.http.get<Planet>(`${API}/planets/${id}`);
-  } */
+  getFilmById(id: number): Observable<Film> {
+    return this.http.get<Film>(`${API}/films/${id}`);
+  }
+
+
   getFilm(url?: URL): Observable<FilmRepository> {
     return this.http
       .get<FilmRepository>(url ? url.toString() : `${API}/films`)
@@ -20,6 +22,8 @@ export class FilmService {
         map((repository: FilmRepository) => {
           repository.results.map((film: Film) => {           
 
+            film.url = new URL(film.url);
+            
             film.characters.map((people: URL) => {
                   people = new URL(people);
                   return people;

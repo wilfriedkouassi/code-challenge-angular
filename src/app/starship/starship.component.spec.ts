@@ -40,7 +40,7 @@ describe('VehicleComponent', () => {
   let fixture: ComponentFixture<StarshipComponent>;
 
   const service = {
-    getPeople: () => of(STARSHIP_MOCK),
+    getStarship: () => of(STARSHIP_MOCK),
   };
 
   beforeEach(async () => {

@@ -3,7 +3,7 @@ import { VehicleComponent } from './vehicle.component';
 import { of } from 'rxjs';
 import { VehicleService } from './vehicle.service';
 
-const PEOPLE_MOCK = {
+const VEHICLE_MOCK = {
   count: 82,
   next: 'https://swapi.dev/api/vehicles/?page=2',
   previous: null,
@@ -37,7 +37,7 @@ describe('VehicleComponent', () => {
   let fixture: ComponentFixture<VehicleComponent>;
 
   const service = {
-    getPeople: () => of(PEOPLE_MOCK),
+    getVehicle: () => of(VEHICLE_MOCK),
   };
 
   beforeEach(async () => {

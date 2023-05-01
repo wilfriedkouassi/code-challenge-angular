@@ -1,37 +1,53 @@
 <section class="section-ressource-list">
-  <div class="u-center-text u-margin-bottom">
-    <h1>Vehcile list</h1>
-  </div>
-
   <ng-container *ngIf="vehicle$ | async as vehicle">
+    <div class="u-center-text u-margin-bottom">
+      <h1>Vehcile list</h1>
+    </div>
     <div class="ressource__list">
       <div *ngFor="let vehicle of vehicle.results" class="ressource--card">
-        <div class="ressource--card__picture ressource--card__picture--1">&nbsp;</div>
+        <div class="ressource--card__picture ressource--card__picture--1">
+          &nbsp;
+        </div>
         <h4 class="ressource--card__heading">
           {{ vehicle.name }}
         </h4>
 
         <div class="ressource--card__details">
           <ul>
-            <li><b>name: </b> {{ vehicle.name }}</li>
+            <li>
+              <span>name: </span> <span>{{ vehicle.name }}</span>
+            </li>
             <li><b>model: </b> {{ vehicle.model }}</li>
-            <li><b>manufacturer: </b> {{ vehicle.manufacturer }}</li>
-            <li><b>cost_in_credits: </b> {{ vehicle.cost_in_credits }}</li>
-            <li><b>length: </b> {{ vehicle.length }}</li>
-            <li><b>max_atmosphering_speed: </b> {{ vehicle.max_atmosphering_speed }}</li>
-            <li><b>crew: </b> {{ vehicle.crew }}</li>
-            <li><b>passengers: </b> {{ vehicle.passengers }}</li>
+            <li>
+              <span>manufacturer: </span>
+              <span>{{ vehicle.manufacturer }}</span>
+            </li>
+            <li>
+              <span>cost_in_credits: </span>
+              <span> {{ vehicle.cost_in_credits }} </span>
+            </li>
+            <li>
+              <span>length: </span> <span> {{ vehicle.length }} </span>
+            </li>
+            <li>
+              <span>max_atmosphering_speed: </span>
+              <span> {{ vehicle.max_atmosphering_speed }}</span>
+            </li>
+            <li>
+              <span>crew: </span> <span> {{ vehicle.crew }} </span>
+            </li>
+            <li>
+              <span>passengers: </span> <span> {{ vehicle.passengers }} </span>
+            </li>
           </ul>
 
-          <a href="#" class="btn btn-text">
+          <a
+            href="javascript:void(0)"
+            class="btn btn-text"
+            (click)="toVehicle(vehicle.url)"
+          >
             See All Details &rarr;
           </a>
-          <!--  <p>
-            {{ person.name }}
-            <a href="javascript:void(0)" (click)="toPlanet(person.homeworld)"
-              >Homeworld</a
-            >
-          </p> -->
         </div>
       </div>
     </div>
@@ -55,6 +71,61 @@
       >
         NEXT &rarr;
       </a>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="vehicle2$ | async as vehicle">
+    <div class="u-center-text u-margin-bottom">
+      <h1>Vehicle: {{ vehicle.name }}</h1>
+    </div>
+    <div class="ressource--card__details">
+      <ul>
+        <li>
+          <span>name: </span> <span>{{ vehicle.name }}</span>
+        </li>
+        <li><b>model: </b> {{ vehicle.model }}</li>
+        <li>
+          <span>manufacturer: </span> <span>{{ vehicle.manufacturer }}</span>
+        </li>
+        <li>
+          <span>cost_in_credits: </span>
+          <span> {{ vehicle.cost_in_credits }} </span>
+        </li>
+        <li>
+          <span>length: </span> <span> {{ vehicle.length }} </span>
+        </li>
+        <li>
+          <span>max_atmosphering_speed: </span>
+          <span> {{ vehicle.max_atmosphering_speed }}</span>
+        </li>
+        <li>
+          <span>crew: </span> <span> {{ vehicle.crew }} </span>
+        </li>
+        <li>
+          <span>passengers: </span> <span> {{ vehicle.passengers }} </span>
+        </li>
+
+          <li>
+          <div *ngFor="let pilot of vehicle.pilots">
+            <a
+              href="javascript:void(0)"
+              (click)="toPeople(pilot)"
+              class="btn btn-text"
+              >pilot</a
+            >
+          </div>
+        </li> 
+        <li>
+          <div *ngFor="let film of vehicle.films">
+            <a
+              href="javascript:void(0)"
+              (click)="toFilm(film)"
+              class="btn btn-text"
+              >film</a
+            >
+          </div>
+        </li> 
+      </ul>
     </div>
   </ng-container>
 </section>

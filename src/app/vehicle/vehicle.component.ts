@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { VehicleService } from './vehicle.service';
 import { Observable } from 'rxjs';
-import { VehicleRepository } from './vehicle.model';
-import { Router } from '@angular/router';
+import { Vehicle, VehicleRepository } from './vehicle.model';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'code-challenge-angular-vehicle',
@@ -11,20 +11,43 @@ import { Router } from '@angular/router';
 })
 export class VehicleComponent implements OnInit {
   vehicle$?: Observable<VehicleRepository>;
+  vehicle2$?: Observable<Vehicle>;
 
-  constructor(private service: VehicleService, private router: Router) {}
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private service: VehicleService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.loadVehicle();
+    !this.activatedRoute.snapshot.params['id']
+      ? this.loadVehicle()
+      : this.loadVehicle2();
   }
 
   loadVehicle(url?: URL) {
     this.vehicle$ = this.service.getVehicle(url);
   }
+  loadVehicle2() {
+    this.vehicle2$ = this.service.getVehicleById(
+      this.activatedRoute.snapshot.params['id']
+    );
+  }
 
-  /* toPlanet(planet: URL) {
-    console.log(planet);
-    const parts = planet.toString().split('/');
-    this.router.navigateByUrl(`planets/${parts.pop() || parts.pop()}`);
-  } */
+  toVehicle(vehicle: URL) {
+    console.log(vehicle);
+    const parts = vehicle.toString().split('/');
+    this.router.navigateByUrl(`vehicles/${parts.pop() || parts.pop()}`);
+  }
+
+  toPeople(people_url: URL) {
+    const parts = people_url.toString().split('/');
+    this.router.navigateByUrl(`people/${parts.pop() || parts.pop()}`);
+  }
+
+  toFilm(film: URL) {
+    console.log(film);
+    const parts = film.toString().split('/');
+    this.router.navigateByUrl(`films/${parts.pop() || parts.pop()}`);
+  }
 }

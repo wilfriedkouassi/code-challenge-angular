@@ -10,13 +10,19 @@ import { API } from '../api';
 export class VehicleService {
   constructor(private http: HttpClient) {}
 
+  getVehicleById(id: number): Observable<Vehicle> {
+    return this.http.get<Vehicle>(`${API}/vehicles/${id}`);
+  } 
+
   getVehicle(url?: URL): Observable<VehicleRepository> {
     return this.http
       .get<VehicleRepository>(url ? url.toString() : `${API}/vehicles`)
       .pipe(
         map((repository: VehicleRepository) => {
           repository.results.map((vehicle: Vehicle) => {           
-
+    
+            vehicle.url = new URL(vehicle.url);
+            
             vehicle.pilots.map((people: URL) => {
                   people = new URL(people);
                   return people;

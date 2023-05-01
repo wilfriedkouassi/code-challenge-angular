@@ -10,12 +10,18 @@ import { API } from '../api';
 export class StarshipService {
   constructor(private http: HttpClient) {}
 
+  getStarshipById(id: number): Observable<Starship> {
+    return this.http.get<Starship>(`${API}/starships/${id}`);
+  } 
+
   getStarship(url?: URL): Observable<StarshipRepository> {
     return this.http
       .get<StarshipRepository>(url ? url.toString() : `${API}/starships`)
       .pipe(
         map((repository: StarshipRepository) => {
           repository.results.map((starship: Starship) => {
+            
+            starship.url = new URL(starship.url);
             
             starship.pilots.map((people: URL) => {
               people = new URL(people);

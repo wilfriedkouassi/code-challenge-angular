@@ -10,7 +10,8 @@ import { Planet, PlanetRepository } from './planet.model';
 export class PlanetService {
   constructor(private http: HttpClient) {}
 
-  getPlanetWithId(id: number): Observable<Planet> {
+  getPlanetById(id: number): Observable<Planet> {
+    console.log("parameter:", this.http.get<Planet>(`${API}/planets/${id}`))
     return this.http.get<Planet>(`${API}/planets/${id}`);
   } 
   getPlanet(url?: URL): Observable<PlanetRepository> {
@@ -19,6 +20,8 @@ export class PlanetService {
       .pipe(
         map((repository: PlanetRepository) => {
           repository.results.map((planet: Planet) => {           
+
+            planet.url = new URL(planet.url);
 
             planet.residents.map((people: URL) => {
                   people = new URL(people);

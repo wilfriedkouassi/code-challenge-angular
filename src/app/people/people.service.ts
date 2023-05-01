@@ -11,12 +11,18 @@ import { Film } from '../film/film.model';
 export class PeopleService {
   constructor(private http: HttpClient) {}
 
+  getPeopleById(id: number): Observable<People> {
+    return this.http.get<People>(`${API}/people/${id}`);
+  } 
+
   getPeople(url?: URL): Observable<PeopleRepository> {
     return this.http
       .get<PeopleRepository>(url ? url.toString() : `${API}/people`)
       .pipe(
         map((repository: PeopleRepository) => {
           repository.results.map((people: People) => {
+
+            people.url = new URL(people.url);
             people.homeworld = new URL(people.homeworld);
 
             people.films.map((film: URL) => {

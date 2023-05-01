@@ -1,45 +1,62 @@
 <section class="section-ressource-list">
-  <div class="u-center-text u-margin-bottom">
-    <h1>people list</h1>
-  </div>
-
   <ng-container *ngIf="people$ | async as people">
+    <div class="u-center-text u-margin-bottom">
+      <h1>people list</h1>
+    </div>
     <div class="ressource__list">
       <div *ngFor="let person of people.results" class="ressource--card">
-        <div class="ressource--card__picture ressource--card__picture--1">&nbsp;</div>
+        <div class="ressource--card__picture ressource--card__picture--1">
+          &nbsp;
+        </div>
         <h4 class="ressource--card__heading">
           {{ person.name }}
         </h4>
 
         <div class="ressource--card__details">
           <ul>
-            <li><span>name </span> <span>{{ person.name }} </span></li>
-            <li><span>height </span> <span>{{ person.height }} </span></li>
-            <li><span>mass </span> <span>{{ person.mass }} </span></li>
-            <li><span>hair color </span> <span>{{ person.hair_color }} </span></li>
-            <li><span>skin color </span> <span>{{ person.skin_color }} </span></li>
-            <li><span>eye color </span> <span>{{ person.eye_color }} </span></li>
-            <li><span>birth year </span> <span>{{ person.birth_year }} </span></li>
-            <li><span>gender </span> <span>{{ person.gender }} </span></li>
-            <li><span>planet </span> <span> <a href="javascript:void(0)" (click)="toPlanet(person.homeworld)"
-              >See Deatails</a> </span></li>
-              <li>
-                <div *ngFor="let film of person.films">
-                <p></p>
-                </div>
-                
-              </li>
+            <li>
+              <span>name </span> <span>{{ person.name }} </span>
+            </li>
+            <li>
+              <span>height </span> <span>{{ person.height }} </span>
+            </li>
+            <li>
+              <span>mass </span> <span>{{ person.mass }} </span>
+            </li>
+            <li>
+              <span>hair color </span> <span>{{ person.hair_color }} </span>
+            </li>
+            <li>
+              <span>skin color </span> <span>{{ person.skin_color }} </span>
+            </li>
+            <li>
+              <span>eye color </span> <span>{{ person.eye_color }} </span>
+            </li>
+            <li>
+              <span>birth year </span> <span>{{ person.birth_year }} </span>
+            </li>
+            <li>
+              <span>gender </span> <span>{{ person.gender }} </span>
+            </li>
+         <!--    <li>
+              <span>planet </span>
+              <span>
+                <a
+                  class="btn btn-text"
+                  href="javascript:void(0)"
+                  (click)="toPlanet(person.homeworld)"
+                  >See Deatails</a
+                >
+              </span>
+            </li> -->
           </ul>
-
-          <a href="#" class="btn btn-text">
+          <a
+            href="javascript:void(0)"
+            class="btn btn-text"
+            (click)="toPeople(person.url)"
+          >
             See All Details &rarr;
           </a>
-          <!--  <p>
-            {{ person.name }}
-            <a href="javascript:void(0)" (click)="toPlanet(person.homeworld)"
-              >Homeworld</a
-            >
-          </p> -->
         </div>
       </div>
     </div>
@@ -63,6 +80,92 @@
       >
         NEXT &rarr;
       </a>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="people2$ | async as person">
+    <div class="u-center-text u-margin-bottom">
+      <h1>People: {{ person.name }}</h1>
+    </div>
+    <div class="ressource--card__details">
+      <ul>
+        <li>
+          <span>name </span> <span>{{ person.name }} </span>
+        </li>
+        <li>
+          <span>height </span> <span>{{ person.height }} </span>
+        </li>
+        <li>
+          <span>mass </span> <span>{{ person.mass }} </span>
+        </li>
+        <li>
+          <span>hair color </span> <span>{{ person.hair_color }} </span>
+        </li>
+        <li>
+          <span>skin color </span> <span>{{ person.skin_color }} </span>
+        </li>
+        <li>
+          <span>eye color </span> <span>{{ person.eye_color }} </span>
+        </li>
+        <li>
+          <span>birth year </span> <span>{{ person.birth_year }} </span>
+        </li>
+        <li>
+          <span>gender </span> <span>{{ person.gender }} </span>
+        </li>
+        <li>
+          <span>planet </span>
+          <span>
+            <a
+              class="btn btn-text"
+              href="javascript:void(0)"
+              (click)="toPlanet(person.homeworld)"
+              >See Deatails</a
+            >
+          </span>
+        </li>
+        <li>
+          <div *ngFor="let film of person.films">
+            <a
+              href="javascript:void(0)"
+              (click)="toFilm(film)"
+              class="btn btn-text"
+              >film</a
+            >
+          </div>
+        </li>
+        <li>
+          <div *ngFor="let specie of person.species">
+            <a
+              href="javascript:void(0)"
+              (click)="toSpecie(specie)"
+              class="btn btn-text"
+              >specie</a
+            >
+          </div>
+        </li>
+        <li>
+          <div *ngFor="let vehicle of person.vehicles">
+            <a
+              href="javascript:void(0)"
+              (click)="toVehicle(vehicle)"
+              class="btn btn-text"
+              >vehicle</a
+            >
+          </div>
+        </li>
+        <li>
+          <div *ngFor="let starship of person.starships">
+            <a
+              href="javascript:void(0)"
+              (click)="toStarship(starship)"
+              class="btn btn-text"
+              >starship</a
+            >
+          </div>
+        </li>
+    
+      </ul>
     </div>
   </ng-container>
 </section>

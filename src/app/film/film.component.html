@@ -1,34 +1,45 @@
 <section class="section-ressource-list">
-  <div class="u-center-text u-margin-bottom">
-    <h1>film list</h1>
-  </div>
+
 
   <ng-container *ngIf="film$ | async as film">
+    <div class="u-center-text u-margin-bottom">
+      <h1>film list</h1>
+    </div>
     <div class="ressource__list">
       <div *ngFor="let film of film.results" class="ressource--card">
-        <div class="ressource--card__picture ressource--card__picture--1">&nbsp;</div>
-        <h4 class="ressource--card__heading"> test
+        <div class="ressource--card__picture ressource--card__picture--1">
+          &nbsp;
+        </div>
+        <h4 class="ressource--card__heading">
           {{ film.title }}
         </h4>
 
         <div class="ressource--card__details">
           <ul>
-            <li><span>title</span><span>{{ film.title }}</span></li>
-            <li><span>episode id</span><span>{{ film.episode_id }}</span></li>
-            <li><span>director</span><span>{{ film.director }}</span></li>
-            <li><span>producer</span><span>{{ film.producer }}</span></li>
-            <li><span>release date</span><span>{{ film.release_date }}</span> </li>
+            <li>
+              <span>title</span><span>{{ film.title }}</span>
+            </li>
+            <li>
+              <span>episode id</span><span>{{ film.episode_id }}</span>
+            </li>
+            <li>
+              <span>director</span><span>{{ film.director }}</span>
+            </li>
+            <li>
+              <span>producer</span><span>{{ film.producer }}</span>
+            </li>
+            <li>
+              <span>release date</span><span>{{ film.release_date }}</span>
+            </li>
           </ul>
 
-          <a href="#" class="btn btn-text">
+          <a
+            href="javascript:void(0)"
+            class="btn btn-text"
+            (click)="toFilm(film.url)"
+          >
             See All Details &rarr;
           </a>
-          <!--  <p>
-              {{ person.name }}
-              <a href="javascript:void(0)" (click)="toPlanet(person.homeworld)"
-                >Homeworld</a
-              >
-            </p> -->
         </div>
       </div>
     </div>
@@ -52,6 +63,71 @@
       >
         NEXT &rarr;
       </a>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="film2$ | async as film">
+    <div class="u-center-text u-margin-bottom">
+      <h1>Film: {{ film.title }}</h1>
+    </div>
+    <div class="ressource--card__details">
+      <ul>
+        <li>
+          <span>title</span><span>{{ film.title }}</span>
+        </li>
+        <li>
+          <span>episode id</span><span>{{ film.episode_id }}</span>
+        </li>
+        <li>
+          <span>director</span><span>{{ film.director }}</span>
+        </li>
+        <li>
+          <span>producer</span><span>{{ film.producer }}</span>
+        </li>
+        <li>
+          <span>release date</span><span>{{ film.release_date }}</span>
+        </li>
+        <li class="u-overflow-scroll">
+          <div *ngFor="let people of film.characters" >
+            <a
+              href="javascript:void(0)"
+              (click)="toPeople(people)"
+              class="btn btn-text"
+              >people</a
+            >
+          </div>
+        </li>
+        <li class="u-overflow-scroll">
+          <div *ngFor="let starship of film.starships">
+            <a
+              href="javascript:void(0)"
+              (click)="toStarship(starship)"
+              class="btn btn-text"
+              >starship</a
+            >
+          </div>
+        </li> 
+        <li>
+          <div *ngFor="let specie of film.species">
+            <a
+              href="javascript:void(0)"
+              (click)="toSpecie(specie)"
+              class="btn btn-text"
+              >specie</a
+            >
+          </div>
+        </li>
+        <li> 
+          <div *ngFor="let vehicle of film.vehicles">
+            <a
+              href="javascript:void(0)"
+              (click)="toVehicle(vehicle)"
+              class="btn btn-text"
+              >vehicle</a
+            >
+          </div>
+        </li>
+      </ul>
     </div>
   </ng-container>
 </section>

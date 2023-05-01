@@ -45,7 +45,27 @@ export const appRoutes: Route[] = [
     component: VehicleComponent, 
   },
   {
+    path: 'people/:id',
+    component: PeopleComponent,
+  },
+  {
     path: 'planets/:id',
     component: PlanetComponent,
+  },
+  {
+    path: 'films/:id',
+    component: FilmComponent,
+  },
+  {
+    path: 'species/:id',
+    component: SpecieComponent,
+  },
+  {
+    path: 'starships/:id',
+    component: StarshipComponent,
+  },
+  {
+    path: 'vehicles/:id',
+    component: VehicleComponent,
   },
 ];
